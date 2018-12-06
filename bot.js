@@ -168,7 +168,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
         id: video.id,
         title: Util.escapeMarkdown(video.title),
         url: `https://www.youtube.com/watch?v=${video.id}`
-    };//حقوق IiKaReeeM ...
+    };//حقوق IiKaReeeM ...vol
     if (!serverQueue) {
         const queueConstruct = {
             textChannel: msg.channel,
@@ -321,7 +321,8 @@ ${prefix}np ⇏ لمعرفة الأغنية المشغلة حآليا
 ${prefix}q ⇏ لمعرفة قآئمة التشغيل
 ${prefix}invite ⇏ لدعوة البوت لسيرفرك
 
-•••【 أوامر خاصة بالبوت 】•••
+•••【 أوامر خاصة بالبوت لا تحاول تلعب فيهم يا فلة ..】•••
+
 
 ${prefix}b ⇏ تغيير بلاينق البوت
 
