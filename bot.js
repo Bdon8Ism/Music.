@@ -19,7 +19,7 @@ client.on('ready', () => {
     console.log(`[Codes] ${client.users.size}`)
     client.user.setStatus("idle")
 });//حقوق IiKaReeeM ...
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////case
 
 client.on('message', async msg => { 
     if (msg.author.bot) return undefined;//حقوق IiKaReeeM ...
@@ -127,8 +127,19 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 .setDescription(`**Songs Queue**
 ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
 **الان يتم تشغيل** ${serverQueue.songs[0].title}`)
-        return msg.channel.sendEmbed(embedqu);//حقوق IiKaReeeM ...
-    } else if (command === `pause`) {
+      return msg.channel.sendEmbed(embedqu);//حقوق IiKaReeeM ...
+    
+    } 
+    else if (command === `repeat`) {
+
+    if (isPlaying) {
+        queue.splice(1, 0, queue[0]);
+        songsQueue.splice(1, 0, songsQueue[0]);
+        message.reply(`**${songsQueue[0]}** will be played again.`);
+    }
+    return msg.channel.send('<a:kiki:512711076937334784>لا يوجد شيء حالي ف العمل.');//حقوق IiKaReeeM ...
+    }
+    else if (command === `pause`) {
         if (serverQueue && serverQueue.playing) {
             serverQueue.playing = false;//حقوق IiKaReeeM ...
             serverQueue.connection.dispatcher.pause();//حقوق IiKaReeeM ...
