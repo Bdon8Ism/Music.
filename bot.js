@@ -134,12 +134,12 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
 
     if (isPlaying) {
         queue.splice(1, 0, queue[0]);
-        songsQueue.splice(1, 0, songsQueue[0]);
-        message.reply(`**${songsQueue[0]}** will be played again.`);
+        songsQueue.splice(1, 0, serverQueue[0]);
+        message.reply(`**${serverQueue[0]}** will be played again.`);
     }
     return msg.channel.send('<a:kiki:512711076937334784>لا يوجد شيء حالي ف العمل.');//حقوق IiKaReeeM ...
-    }
-    else if (command === `pause`) {
+    
+    } else if (command === `pause`) {
         if (serverQueue && serverQueue.playing) {
             serverQueue.playing = false;//حقوق IiKaReeeM ...
             serverQueue.connection.dispatcher.pause();//حقوق IiKaReeeM ...
@@ -209,7 +209,7 @@ function play(guild, song) {
     console.log(serverQueue.songs);//حقوق IiKaReeeM ...
 
     const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
-        .on('end', reason => {
+        .on('stop', reason => {
             if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');//حقوق IiKaReeeM ...
             else console.log(reason);//حقوق IiKaReeeM ...
             serverQueue.songs.shift();//حقوق IiKaReeeM ...
