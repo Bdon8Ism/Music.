@@ -5,6 +5,7 @@ const YouTube = require("simple-youtube-api");
 const fs = require("fs");
 const getYTID = require("get-youtube-id");
 const prefix = "*";
+const ytApiKey = "AIzaSyD_hGr-A7TR77U3rqVDmINtnIreFld-q8w";
 const youtube = new YouTube(ytApiKey);
 
 const bot = new Discord.Client({
