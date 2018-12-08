@@ -5,13 +5,11 @@ const YouTube = require("simple-youtube-api");
 const fs = require("fs");
 const getYTID = require("get-youtube-id");
 const prefix = "*";
-const ytApiKey = botSettings.ytApiKey;
 const youtube = new YouTube(ytApiKey);
 
 const bot = new Discord.Client({
 	disableEveryone: true
 });
-
 let commandsList = fs.readFileSync('commands.md', 'utf8');
 
 
