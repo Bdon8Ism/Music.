@@ -38,6 +38,9 @@ client.on('message', async msg => {
         const voiceChannel = msg.member.voiceChannel;//حقوق IiKaReeeM ...
         if (!voiceChannel) return msg.channel.send('يجب ان تكون بروم صوتي');//حقوق IiKaReeeM ...
         const permissions = voiceChannel.permissionsFor(msg.client.user);//حقوق IiKaReeeM ...
+        if (!permissions.has('EMBED_LINKS')) {
+            return msg.channel.sendMessage("**I Dont Have Permission** `EMBED LINKS`")
+        }
         if (!permissions.has('CONNECT')) {
             
             return msg.channel.send('**I Dont Have Permission** `CONNECT` **In the room**');//حقوق IiKaReeeM ...
@@ -46,9 +49,7 @@ client.on('message', async msg => {
             return msg.channel.send('**I Dont Have Permission** `SPEAK` **In the room');//حقوق IiKaReeeM ...
         }
  
-        if (!permissions.has('EMBED_LINKS')) {
-            return msg.channel.sendMessage("**I Dont Have Permission** `EMBED LINKS`")
-        }
+        
  
         if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
             const playlist = await youtube.getPlaylist(url);//حقوق IiKaReeeM ...
@@ -113,7 +114,7 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
     if(args[1] > 100) return msg.channel.send(`:loud_sound: الرجاء تحديد مستوى الصوت من 0 إلى 100`)
         serverQueue.volume = args[1];
         serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 50);
-        return msg.channel.send(`:speaker: تم تغير الصوت الي :dance: **${args[1]}**`);
+        return msg.channel.send(`:speaker: تم تغير الصوت الي <a:Dance:512758054195036160> **${args[1]}**`);
     } else if (command === `np`) {
         if (!serverQueue) return msg.channel.send('لا يوجد شيء حالي ف العمل.');//حقوق IiKaReeeM ...
         const embedNP = new Discord.RichEmbed()
